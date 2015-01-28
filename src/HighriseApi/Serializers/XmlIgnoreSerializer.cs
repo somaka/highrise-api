@@ -71,8 +71,8 @@ namespace HighriseApi.Serializers
                     root.Add(instance);
                 }
             }
-            else
-                Map(root, obj);
+            
+            Map(root, obj);
 
             if (RootElement.HasValue())
             {
@@ -105,6 +105,11 @@ namespace HighriseApi.Serializers
                 if (ignore != null) continue;
 
                 var name = prop.Name;
+
+                if (obj is IList && (name == "Item" || name == "Capacity")) {
+                    continue;
+                }
+
                 var rawValue = prop.GetValue(obj, null);
 
                 if (rawValue == null)
@@ -164,10 +169,8 @@ namespace HighriseApi.Serializers
                         element.Add(instance);
                     }
                 }
-                else
-                {
-                    Map(element, rawValue);
-                }
+
+                Map(element, rawValue);
 
                 root.Add(element);
             }

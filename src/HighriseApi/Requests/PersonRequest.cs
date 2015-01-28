@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using HighriseApi.ExtensionMethods;
 using HighriseApi.Interfaces;
+using HighriseApi.Serializers;
 using RestSharp;
 using RestSharp.Serializers;
 
@@ -38,7 +39,7 @@ namespace HighriseApi.Requests
 
         public Person Create(Person person)
         {
-            var request = new RestRequest("people.xml", Method.POST) { XmlSerializer = new XmlSerializer() };
+            var request = new RestRequest("people.xml", Method.POST) { XmlSerializer = new XmlIgnoreSerializer() };
             request.AddBody(person);
 
             var response = _client.Execute<Person>(request);
@@ -47,7 +48,7 @@ namespace HighriseApi.Requests
 
         public Person Update(Person person)
         {
-            var request = new RestRequest("people/{id}.xml?reload=true", Method.PUT) { XmlSerializer = new XmlSerializer() };
+            var request = new RestRequest("people/{id}.xml?reload=true", Method.PUT) { XmlSerializer = new XmlIgnoreSerializer() };
             request.AddParameter("id", person.Id, ParameterType.UrlSegment);
             request.AddBody(person);
 

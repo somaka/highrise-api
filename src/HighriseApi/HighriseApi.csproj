@@ -31,9 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="RestSharp, Version=104.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\RestSharp.dll</HintPath>
+      <HintPath>..\packages\RestSharp.104.5.0-beta\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,6 +68,7 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Enums\CommentType.cs" />
     <Compile Include="Models\Recording.cs" />
+    <Compile Include="Models\SubjectDatas.cs" />
     <Compile Include="Models\SubjectField.cs" />
     <Compile Include="Models\TaskCategory.cs" />
     <Compile Include="Models\DealCategory.cs" />

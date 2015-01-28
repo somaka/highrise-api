@@ -54,6 +54,6 @@ namespace HighriseApi
         public ContactData ContactData { get; set; }
 
         [SerializeAs(Name = "subject_datas")]
-        public List<SubjectData> SubjectDatas { get; set; }
+        public SubjectDatas SubjectDatas { get; set; }
     }
 }
